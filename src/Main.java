@@ -1,5 +1,7 @@
 import java.text.DecimalFormat;
 import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
 
 /**
  * this is a block comment
@@ -97,6 +99,37 @@ public class Main {
         // task 4: define/call static method that accepts two strings
         // and returns true if they have the same last character, false otherwise
         // think about special cases
+        System.out.println(hasSameLastCharacter("john", "sean"));
+        System.out.println(hasSameLastCharacter("john", "sam"));
+        System.out.println(hasSameLastCharacter("john", null));
 
+        // RANDOM NUMBERS
+        // create an object of type Random
+        Random random = new Random();
+        int randInt = random.nextInt(10); // [0, 10)
+        System.out.println("randInt: " + randInt);
+
+        // USER INPUT (only for java assignments, not used for android)
+        // use the Scanner class for input from keyboard (System.in) and for reading from a file
+        Scanner kb = new Scanner(System.in);
+        System.out.println("Enter your favorite number: ");
+        int favNum = kb.nextInt();
+        kb.nextLine(); // to flush the newline out of the buffer
+        System.out.println("Your favorite number: " + favNum);
+        System.out.println("Enter your favorite place: ");
+        String favPlace = kb.nextLine();
+        System.out.println("Your favorite place: " + favPlace);
+    }
+
+    public static boolean hasSameLastCharacter(String first, String second) {
+        if (first != null && second != null) { // make sure valid references
+            if (first.length() > 0 && second.length() > 0) {
+                if (first.charAt(first.length() - 1) == second.charAt(second.length() - 1)) {
+                    return true;
+                }
+            }
+        }
+        // this method be written more concisely...
+        return false;
     }
 }
